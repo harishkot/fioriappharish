@@ -1,0 +1,37 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core"
+          controllerName="emc.fin.ar.controller.View2" xmlns:f="sap.ui.layout.form">
+    <Page title="View 2" showNavButton="true" navButtonPress="onBack" >
+        <ObjectHeader  intro="{healthBenefit}" title="{name}" number="{price}" numberUnit="{currency}" icon="{imageURL}"></ObjectHeader>
+        <IconTabBar>
+        <items>
+        <IconTabFilter text="moreinfo" icon="sap-icon://warning">
+        <!-- <core:Fragment fragmentName="emc.fin.ar.fragments.myForm" type="XML"/> -->
+          <core:Fragment fragmentName="emc.fin.ar.fragments.myForm" type="XML"/>
+        
+        </IconTabFilter>
+        <!-- <IconTabFilter text="suppliers" icon="sap-icon://supplier"></IconTabFilter> -->
+         <IconTabFilter text="Suppliers" icon="sap-icon://supplier">
+                    <core:Fragment fragmentName="emc.fin.ar.fragments.supplierTab" type="XML" />
+                </IconTabFilter>
+        <IconTabFilter text="cities" icon="sap-icon://home">
+        <Select items="{/cities}">
+						<core:Item key="{name}" text="{name}"/>
+					</Select>
+					<ComboBox items="{/cities}">
+						<core:Item key="{name}" text="{name}"/>
+					</ComboBox>
+					<MultiComboBox items="{/cities}">
+						<core:Item key="{name}" text="{name}"/>
+					</MultiComboBox>
+        </IconTabFilter>
+        </items>
+        </IconTabBar>
+        <footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button text="Save" type="Accept" icon="sap-icon://save" press="onSave"/>
+				<Button text="Cancel" type="Reject" icon="sap-icon://cancel" press="onCancel"/>
+			</Toolbar>
+		</footer>
+    </Page>
+</mvc:View>
